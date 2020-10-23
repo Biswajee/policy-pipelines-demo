@@ -6,33 +6,33 @@ package kubernetes.admission
 deny[reason] {
     containers := input.spec.template.spec.containers[_]
     # deny if cpu requests are not set
-    not cpuRequests(containers)
+    not cpurequests(containers)
     # deny if memory requests are not set
-    not memoryRequests(containers)
+    not memoryrequests(containers)
     reason := "Resource requests not set."
 }
 
 deny[reason] {
     containers := input.spec.template.spec.containers[_]
     # deny if cpu limits are not set
-    not cpuLimits(container)
+    not cpulimits(containers)
     # deny if memory limits are not set
-    not memoryLimits(container)
+    not memorylimits(containers)
     reason := "Resource limits not set."
 }
 
-cpuRequests(container) {
+cpurequests(containers) {
     containers.resources.request.cpu
 }
 
-memoryRequests(container) {
+memoryrequests(containers) {
     containers.resources.request.memory
 }
 
-cpuLimits(container) {
+cpulimits(containers) {
     containers.resources.limits.cpu
 }
 
-memoryLimits(container) {
+memorylimits(containers) {
     containers.resources.limits.memory
 }
