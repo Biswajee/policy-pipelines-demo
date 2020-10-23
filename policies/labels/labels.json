@@ -1,0 +1,7 @@
+{
+    "tier": [
+        "master",
+        "development",
+        "test"
+    ]
+}
