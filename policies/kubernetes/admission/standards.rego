@@ -22,11 +22,11 @@ deny[reason] {
 }
 
 cpurequests(containers) {
-    containers.resources.request.cpu
+    containers.resources.requests.cpu
 }
 
 memoryrequests(containers) {
-    containers.resources.request.memory
+    containers.resources.requests.memory
 }
 
 cpulimits(containers) {
