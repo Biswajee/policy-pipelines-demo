@@ -3,6 +3,10 @@
 
 package kubernetes.admission
 
+allow = true {
+    count(deny.reason) == 0
+}
+
 deny[reason] {
     containers := input.spec.template.spec.containers[_]
     # deny if cpu requests are not set
