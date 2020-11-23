@@ -13,4 +13,5 @@ steps:
 - bash: |
     curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
     chmod 755 ./opa
-    ./opa eval -i deployment.yaml -d policies --format=pretty
+    .opa eval -i deployment.yaml -d policies "data.kubernetes.admission.deny" --format=pretty
+  displayName: Run opa eval on sample deployment.yaml
